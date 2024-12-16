@@ -32,12 +32,13 @@ const List<String> cryptoList = [
   'LTC',
 ];
 
+// use env file to hide api key on github
 final String apiKey = dotenv.env['API_KEY'] ?? '';
 const coinAPIURL = 'https://rest.coinapi.io/v1/exchangerate';
 
 class CoinData {
   Future getCoinData(String selectedCurrency) async {
-    Map<String, String> cryptoPrices = {};
+    Map<String, String> cryptoPrices = {}; // use map to store crypto currencies and their values
 
     for (String crypto in cryptoList) {
       String url = '$coinAPIURL/$crypto/$selectedCurrency?apikey=$apiKey';

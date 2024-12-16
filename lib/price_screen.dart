@@ -7,7 +7,6 @@ class PriceScreen extends StatefulWidget {
   const PriceScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _PriceScreenState createState() => _PriceScreenState();
 }
 
@@ -62,7 +61,8 @@ class _PriceScreenState extends State<PriceScreen> {
 
   Map<String, String> coinValues = {};
 
-  bool isWaiting = false;
+  bool isWaiting =
+      false; // to set the symbol for when the system is fetching crypto data (mcm buffering)
 
   void getData() async {
     isWaiting = true;
@@ -111,7 +111,7 @@ class _PriceScreenState extends State<PriceScreen> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              ...createCryptoCards(),
+              ...createCryptoCards(), // to extract the crypto cards (if no ..., then the system will only display one card)
             ],
           ),
           Container(
